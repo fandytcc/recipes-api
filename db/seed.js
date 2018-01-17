@@ -5,7 +5,7 @@ const recipes = require('./fixtures/recipes.json')
 const createUrl = (path) => {
   return `${process.env.HOST || `http://localhost:${process.env.PORT || 3030}`}${path}`
 }
-//use library superagent to seed the data in our API
+//use library superagent (API client) to create a client that could connect to our API, and to seed the data in our API(createUrl)
 
 //add a loop to create all recipes from the fixtures
 const createRecipes = (token) => {
@@ -23,6 +23,7 @@ const createRecipes = (token) => {
   })
 }
 
+//function to authenticate new User
 const authenticate = (email, password) => {
   request
     .post(createUrl('/sessions'))
